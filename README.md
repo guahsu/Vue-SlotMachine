@@ -84,8 +84,7 @@ isFinished (val) {
     <button
       class="start"
       @click="turn"
-      :disabled="disabled"
-      type="primary">
+      :disabled="disabled">
       START
     </button>
   </div>
@@ -167,7 +166,7 @@ export default {
     background-color: #4DA1FF;
     color: #ffffff;
     cursor: pointer;
-    transition: 0.15s;
+    transition: 150ms;
     user-select: none;
     &:disabled {
       background-color: #ddd;

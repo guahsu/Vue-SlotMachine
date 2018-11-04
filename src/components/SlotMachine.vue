@@ -25,12 +25,11 @@
         <div class="ball" @click="!disabled && turn()"></div>
       </div>
     </div>
-    <button
+    <div
       class="history"
-      @click="openResultList = true"
-      type="primary">
+      @click="openResultList = true">
       OPEN RESULT
-    </button>
+    </div>
     <div
        @click.self="openResultList = false"
        :class="['resultList', {'openResultList' : openResultList }]">
@@ -47,12 +46,10 @@
 
 <script>
 import Gift from './Gift'
-import Snowf from 'vue-snowf'
 export default {
   name: 'SlotMachine',
   components: {
-    Gift,
-    Snowf
+    Gift
   },
   data () {
     return {
@@ -135,8 +132,9 @@ export default {
   justify-content: center;
   user-select: none;
   .badge {
-    position: absolute;
-    bottom: 50%;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 200px;
     display: flex;
     justify-content: center;
     width: 650px;
@@ -181,7 +179,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 195px;
     border: $border-size solid $blue;
     border-radius: 40px;
     overflow: hidden;
@@ -189,6 +186,7 @@ export default {
     &::after,
     &::before {
       position: absolute;
+      z-index: 5;
       width: 100%;
       height: 100%;
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2) inset;
@@ -209,7 +207,7 @@ export default {
       .fence1,
       .fence2 {
         position: absolute;
-        z-index: 9;
+        z-index: 10;
         left: 190px;
         width: 10px;
         height: 200px;
@@ -261,7 +259,7 @@ export default {
       border: $border-size solid $blue;
       border-radius: 20px;
       background-color: $red;
-      transition: 0.35s;
+      transition: 350ms;
     }
     .stick2 {
       position: absolute;
@@ -283,24 +281,22 @@ export default {
       border-radius: 50%;
       background-color: $red;
       cursor: pointer;
-      transition: 0.5s;
+      transition: 500ms;
       animation: ballLight 1s infinite alternate-reverse linear;
     }
   }
   .github {
-    position: absolute;
-    margin-top: 320px;
+    margin-top: 10px;
     a {
       color: #fff;
     }
   }
   .history {
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    margin-top: 250px;
     white-space: nowrap;
     padding: 15px 30px;
     outline: none;
@@ -312,7 +308,6 @@ export default {
     font-size: 30px;
     font-family: 'Lobster', cursive;
     cursor: pointer;
-    transition: 0.3s;
 
     user-select: none;
     &:after {
@@ -340,7 +335,7 @@ export default {
     justify-content: center;
     background-color: rgba(0,0,0,0.4);
     opacity: 0;
-    transition: 0.5s;
+    transition: 500ms;
     &.openResultList {
       visibility: visible;
       opacity: 1;
